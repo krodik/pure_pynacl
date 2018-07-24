@@ -555,7 +555,22 @@ def crypto_box_curve25519xsalsa20poly1305_tweet_open_afternm(m, c, d, n, k):
 
 
 def crypto_box_curve25519xsalsa20poly1305_tweet(c, m, d, n, y, x):
-    '''int crypto_box_curve25519xsalsa20poly1305_tweet(u8*c, const u8*m, u64 d, const u8*n, const u8*y, const u8*x)'''
+    """
+    int crypto_box_curve25519xsalsa20poly1305_tweet(u8*c, const u8*m, u64 d, const u8*n, const u8*y, const u8*x)
+
+    :param c: cyphertext
+    :type c: IntArray(u8)
+    :param m: message
+    :type m: IntArray(u8)
+    :param d: message length
+    :type d: u64
+    :param n: nonce
+    :type n: IntArray(u8)
+    :param y: public key
+    :type y: IntArray(u8)
+    :param x: secret key
+    :type x: IntArray(u8)
+    """
     k = IntArray(u8, size=32)
     crypto_box_curve25519xsalsa20poly1305_tweet_beforenm(k, y, x)
     return crypto_box_curve25519xsalsa20poly1305_tweet_afternm(c, m, d, n, k)
